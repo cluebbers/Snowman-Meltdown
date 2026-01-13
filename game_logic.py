@@ -1,5 +1,5 @@
 import random
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 from ascii_art import STAGES
 
@@ -39,7 +39,11 @@ def play_game():
         # Prompt user for one guess (logic to be enhanced later)
         guess = input(Fore.YELLOW + "Guess a letter: " + Style.RESET_ALL).lower()
         if len(guess) != 1 or not guess.isalpha():
-            print(Fore.RED + "Please enter a single alphabetical character." + Style.RESET_ALL)
+            print(
+                Fore.RED
+                + "Please enter a single alphabetical character."
+                + Style.RESET_ALL
+            )
             continue
         if guess in secret_word:
             guessed_letters.add(guess)
@@ -49,4 +53,3 @@ def play_game():
         print(Fore.GREEN + "Congratulations! You saved the snowman!" + Style.RESET_ALL)
     else:
         print(Fore.RED + "Game Over! The word was:" + secret_word + Style.RESET_ALL)
-    
